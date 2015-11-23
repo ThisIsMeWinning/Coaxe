@@ -15,10 +15,6 @@ public class Screen {
 		this.width = width;
 		this.height = height;
 		pixels = new int[width * height];
-
-	}
-
-	public void update() {
 		// random colors
 		for (int i = 0; i < 64 * 64; i++) {
 			tiles[i] = random.nextInt(0xffffff);
@@ -40,7 +36,7 @@ public class Screen {
 			for (int x = 0; x < width; x++) {
 				if (x < 0 || x >= width)
 					break;
-				int tileIndex = (x >> 2) + (y >> 2) * 64;
+				int tileIndex = (x >> 4) + (y >> 4) * 64;
 				pixels[x + y * width] = tiles[tileIndex];
 			}
 		}
